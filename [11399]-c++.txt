@@ -1,0 +1,32 @@
+#include<iostream>
+#include<algorithm>
+
+using namespace std;
+
+int main(void){
+	int human;
+	cin>>human;
+	
+	int time[human];
+	
+	for(int i=0; i<human; i++){
+		cin>>time[i];
+	}
+	
+	sort(time,time+human);
+	
+
+	int outcome[human];
+	
+	int temp=0;
+	
+	
+	for(int i=0; i<human; i++){
+		for(int j=0; j<=i; j++){
+			temp=temp+time[j];
+		}
+		outcome[i]=temp;
+	}
+	
+	cout<<outcome[human-1];
+}
