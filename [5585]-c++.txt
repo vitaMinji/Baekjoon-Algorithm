@@ -1,0 +1,34 @@
+#include <iostream>
+
+
+using namespace std;
+
+int main(void){
+	int money;
+	cin>>money;
+	
+	int returnM;
+	int outcome;
+	
+	
+	returnM=1000-money;
+	
+	outcome=returnM/500;
+	returnM=returnM-(returnM/500)*500;
+	
+	outcome=outcome+returnM/100;
+	returnM=returnM-(returnM/100)*100;
+	
+	outcome=outcome+returnM/50;
+	returnM=returnM-(returnM/50)*50;
+	
+	outcome=outcome+returnM/10;
+	returnM=returnM-(returnM/10)*10;
+	
+	outcome=outcome+returnM/5;
+	returnM=returnM-(returnM/5)*5;
+	
+	outcome=outcome+returnM/1;
+	cout<<outcome;
+	
+}
