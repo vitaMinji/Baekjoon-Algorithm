@@ -1,0 +1,28 @@
+#include <iostream>
+#include <algorithm>
+
+using namespace std;
+
+bool compare(int a, int b){
+	return a>b;
+}
+
+int main(void){
+	string s;
+	
+	cin>>s;
+	
+	int le = s.length();
+	
+	int array[le];
+	
+	for(int i=0; i<le; i++){
+		array[i] = s[i]-48;
+	}
+	
+	sort(array,array+le,compare);
+	
+	for(int i=0; i<le; i++){
+		cout<<array[i];
+	}
+}
