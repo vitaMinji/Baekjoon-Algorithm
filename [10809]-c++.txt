@@ -1,0 +1,42 @@
+#include<iostream>
+using namespace std;
+
+
+
+
+int main(void){
+	string s;
+	cin>>s;
+	int size = s.length();
+	 
+	char a[size];
+	int alpha[26];
+	
+	
+	
+	for(int i=0; i<26; i++){
+		alpha[i]=-1;
+	}
+	
+	//문자열 쪼개기	대신 몇번째 위치의 문자열 찾기
+	for(int i=0; i<size; i++){
+		a[i]=s.at(i);
+	}
+	
+	
+	
+	//아스키코드를 이용해야한다. 소문자 1씩 증가하는거 봤으니까.
+	for(int i=0; i<size; i++){
+		for(int j=0; j<26; j++){
+			if(a[i]==(j+'a')&&alpha[j]==-1){//상수로 비교 
+				alpha[j]=i;
+			}
+		}
+	} 
+	
+	for(int i=0; i<26;i++){
+		cout<<alpha[i]<<' ';
+	}
+	
+	
+}
