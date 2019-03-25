@@ -1,0 +1,58 @@
+#include <iostream>
+#include <algorithm>
+#include <stdio.h>
+
+using namespace std;
+
+
+int alpha[26];
+
+int main(void){
+	string s;
+	cin>>s;
+	
+	int outcome,index;
+	
+	int finalAlpha[26];
+	
+	for(int i=0; i<s.length();i++){
+		for(int j=0; j<26; j++){
+		
+		if(s.at(i)==('A'+j)||s.at(i)==('a'+j)){
+			alpha[j]++; 
+		}
+	}
+	}
+	
+	for(int i=0; i<26; i++){
+		finalAlpha[i]=alpha[i];
+		
+	}
+	
+	sort(finalAlpha,finalAlpha+26);
+	
+
+	
+
+	if(finalAlpha[24]==finalAlpha[25]){
+		cout<<"?";
+	}else{
+		
+		for(int i=0; i<26; i++){
+			
+			if(finalAlpha[25]==alpha[i]){
+				
+				index=i;
+			}
+		}
+		
+		outcome='A'+index;
+
+		printf("%c\n",outcome);
+	
+	}
+	
+	
+	
+	
+}
