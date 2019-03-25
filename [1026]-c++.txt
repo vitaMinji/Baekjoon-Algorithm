@@ -1,0 +1,49 @@
+#include <iostream>
+#include <algorithm>
+
+using namespace std;
+
+int main(void){
+	int n;
+	cin>> n;
+	
+	int a[n],b[n];
+	int temp;
+	int copyB[n]; 
+	
+	
+	for(int i=0; i<n; i++){
+		cin>>temp;
+		a[i]=temp;
+	}
+	
+
+	for(int i=0; i<n; i++){
+		cin>>temp;
+		b[i]=temp;
+		copyB[i]=temp;
+	}
+	
+	sort(a,a+n);//a 정렬  
+	sort(copyB,copyB+n);//b카피본 정렬  
+	//b의 값이 큰 곳 찾아야 된다
+	
+	int outcome[n];
+	for(int i=0; i<n; i++){
+		for(int j=0; j<n; j++){
+			if(copyB[i]==b[j]){
+				outcome[i]=a[n-1-i]*b[j];
+				break;
+			}	
+		}
+		
+	} 
+	
+	int sum=0;
+	for(int i=0; i<n; i++){
+		sum=sum+outcome[i];
+	}
+	
+	cout<<sum;
+	 
+}
