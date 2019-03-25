@@ -1,0 +1,55 @@
+#include<iostream>
+
+using namespace std;
+
+int main(void){
+	
+	string a,b;
+	cin>>a>>b;
+	
+	int numA[3];
+	int numB[3];
+	int temp;
+	
+	
+	for(int i=0; i<3; i++){
+		numA[i]=a.at(i)-48;
+		numB[i]=b.at(i)-48;
+	}
+	
+
+	
+	temp=numA[0];
+	numA[0]=numA[2];
+	numA[2]=temp;	
+	
+	temp=numB[0];
+	numB[0]=numB[2];
+	numB[2]=temp;
+	
+	if(numA[0]>numB[0]){
+		for(int i=0; i<3; i++){
+			cout<<numA[i];
+		}
+	}else if(numA[0]<numB[0]){
+		for(int i=0; i<3; i++){
+			cout<<numB[i];
+		}
+	}else if(numA[1]<numB[1]){
+		for(int i=0; i<3; i++){
+			cout<<numB[i];
+		}
+	}else if(numA[1]>numB[1]){
+		for(int i=0; i<3; i++){
+			cout<<numA[i];
+		}
+	}else if(numA[2]<numB[2]){
+		for(int i=0; i<3; i++){
+			cout<<numB[i];
+		}
+	}else if(numA[2]>numB[2]){
+		for(int i=0; i<3; i++){
+			cout<<numA[i];
+		}
+	}
+}
