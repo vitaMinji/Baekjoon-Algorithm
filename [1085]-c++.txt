@@ -1,0 +1,28 @@
+#include<iostream>
+
+using namespace std;
+
+int main(void){
+	
+	int x,y,w,h;
+	
+	cin>>x>>y>>w>>h;
+	
+	int temp1, temp2=0;
+	
+	if((w-x)<=x){
+		temp1=(w-x);
+	}else temp1=x;
+	
+	if((h-y)<=y){
+		temp2=(h-y);
+	}else temp2=y;
+	
+	if(temp1==0){
+		cout<<temp2;
+	} else if(temp2==0){
+		cout<<temp1;
+	}else if(temp1<=temp2){
+		cout<<temp1;
+	}else cout<<temp2;
+}
