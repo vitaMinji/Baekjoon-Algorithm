@@ -1,0 +1,41 @@
+#include <iostream>
+#include <algorithm>
+
+using namespace std;
+
+bool compare (int a, int b){
+	return a>b;
+}
+
+int main(void){
+	int n;
+	cin>>n;
+	
+	int le[n];
+	int a;
+	
+	bool exit =false;
+	
+	for(int i=0; i<n; i++){
+		cin>>a;
+		le[i]=a;
+	}
+	
+	sort(le,le+n,compare);
+	
+	for(int i=0; i<n; i++){
+		if(i+2>=n) break;
+		if(le[i]>=le[i+1]+le[i+2]){
+			
+		}else{
+			cout<<le[i]+le[i+1]+le[i+2];
+			exit=true;
+			break;
+		}
+	}
+	
+	if(exit==false){
+		cout<<-1;
+	}
+	
+}
