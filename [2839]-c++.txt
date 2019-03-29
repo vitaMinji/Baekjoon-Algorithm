@@ -1,0 +1,27 @@
+#include <iostream>
+
+using namespace std;
+
+int main(void){
+	int w;
+	cin>>w;
+	//입력받고!!
+	int n5,n3=0;
+  
+	for(;;){
+		if(w<3){
+			n3=-1;//주의주의 
+			break;
+		} 
+			
+		else if(w%5==0){
+			n5=w/5;
+			break;
+		} 
+		
+		w=w-3;
+		n3++;
+		}
+		cout<<n5+n3;
+	}
+
