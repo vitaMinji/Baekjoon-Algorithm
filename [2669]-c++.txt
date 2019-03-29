@@ -1,0 +1,39 @@
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+int map[10000];
+
+bool compare(int a, int b){
+	return a>b;
+}
+int main(void){
+	
+	int a[4][4];
+	int b;
+	for(int i=0; i<4; i++){
+		for(int j=0; j<4; j++){
+			cin>>b;
+			a[i][j]=b;
+		}
+	}
+	
+	for(int i=0; i<4; i++){
+		for(int j=a[i][1]; j<a[i][3]; j++){//세로 
+			
+			for(int k=a[i][0]; k<a[i][2]; k++){//가로  
+				map[j*100+k]=1;
+			}
+		}
+	}
+	
+	int n1=0;
+	for(int i=0; i<10000; i++){
+	
+		 if(map[i]==1){
+			n1++;
+		}
+	}
+	
+	cout<<n1;
+}
