@@ -1,0 +1,11 @@
+#include<iostream>
+
+using namespace std;
+
+int main(void){
+	int soluNum=38;
+	string s="mjhou2000";
+	
+	cout<<soluNum<<endl;
+	cout<<s<<endl;
+}
