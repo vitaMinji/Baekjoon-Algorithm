@@ -1,0 +1,36 @@
+#include<iostream>
+#include<algorithm>
+
+using namespace std;
+
+int main(void){
+	int n;
+	cin>>n;
+	
+	int w[n];
+	int we;
+	for(int i=0; i<n; i++){
+		cin>>we;
+		w[i]=we;
+	}
+	
+	sort(w,w+n);
+	
+	int count = 1;
+	
+	bool isValid = false;
+	
+	for(int i=0; i<n; i++){
+		if(count<w[i]){
+			cout<<count;
+			isValid=true;
+			break;
+		}
+		count=count+w[i];	
+	}
+	
+	if(isValid==false){
+		cout<<count;
+	}
+ 
+}
