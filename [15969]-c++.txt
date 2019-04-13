@@ -1,0 +1,26 @@
+#include<iostream>
+#include<algorithm>
+
+
+using namespace std;
+
+int main(void){
+	int number;
+	cin>>number;
+	
+	int score[number];
+	int temp;
+	for(int i=0; i<number; i++){
+		cin>>temp;
+		score[i]=temp;
+	}
+	
+	sort(score,score+number);
+	int top;
+	int bottom;
+	
+	top = score[number-1];
+	bottom = score[0];
+	
+	cout<<top-bottom;
+} 
