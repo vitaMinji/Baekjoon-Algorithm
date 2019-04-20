@@ -1,0 +1,29 @@
+#include <iostream>
+
+using namespace std;
+
+int number[10];
+
+int main(void) {
+	string a;
+	cin >> a;
+	int temp = 0;
+	
+	for(int i = 0; i < a.size(); i++) {
+		number[a[i] - '0']++;//숫자 뭔지 확 
+		temp += a[i] - '0';//합구하려구  
+	}
+	
+	if(temp % 3 == 0 && number[0] !=0) { //3의배수일때  
+		for(int i = 9; i >= 0; i--) { // i 감소 
+			for(int j = 0; j < number[i]; j++) {//숫자 있는거 싹 꺼내기 
+				cout << i;
+			}
+		}
+	} else {
+		cout << -1;
+	}
+	
+	//!!!!! 어차피 0은 작으니까 제일 뒤로 꺼내주겠네!!!!! 
+	return 0;
+}
