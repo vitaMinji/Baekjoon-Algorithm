@@ -1,0 +1,26 @@
+#include <iostream>
+#include <string.h> 
+#include <algorithm>
+
+using namespace std;;
+
+int alpha[26];
+
+int main(void){
+	string s;
+	cin>>s;
+	int count=0;
+	 
+	for(int i=0; i<(s.length()/2); i++){
+		for(int j=0; j<26; j++){
+			if(s.at(i)=='a'+j&&s.at(s.length()-1-i)=='a'+j){ //같은 알파벳일때  
+				count++; 
+			}
+		}
+	}
+	
+	if(count>=(s.length()/2)){
+		cout<<1;
+	}else cout<<0;
+	
+}
