@@ -5,6 +5,7 @@ using namespace std;
 
 int army[100001];
 int parent[100001]; 
+int array[100001];
 
 int getParent(int parent[], int x){
 	if(parent[x]==x) return x;
@@ -12,9 +13,9 @@ int getParent(int parent[], int x){
 }
 
 void together(int parent[], int p, int q){//동맹  
-	int a=getParent(parent,p);
-	int b=getParent(parent,q);
-	if(a>b){
+	int a=getParent(parent,p);//p의 부모노드 
+	int b=getParent(parent,q);//q의 부모노드  
+	if(army[a]>army[b]){
 		parent[a]=b;
 		army[a]=army[a]+army[b];
 		army[b]=army[a];
@@ -26,10 +27,10 @@ void together(int parent[], int p, int q){//동맹
 }
 
 void war(int parent[],int p, int q){//같은 동맹인가?  //시맨틱 에러  
-	int a=getParent(parent,p);
-	int b=getParent(parent,q);
+	int a=getParent(parent,p);//p의 부모노드 
+	int b=getParent(parent,q);//q의 부모노드  
 	//서로의 부모노드가 같지 않을때만  
-	if(a!=b){
+	if(a!=b){ 
 		if(army[a]>army[b]){
 			army[a]=army[a]-army[b];
 			army[b]=0;
@@ -71,23 +72,30 @@ int main(void){
 }
 	int count=0;
 	
-	sort(parent,parent+n+1);
-	for(int i=1; i<n; i++){
-		if(parent[i]!=parent[i+1]){
+
+	
+	for(int i=1; i<=n; i++){
+		if(parent[i]==i){
 			count++;
 		}
-	}//너 이상해용  
+	}
 	
 	cout<<count<<endl;
 	
-	sort(army,army+n+1);
+	
+	
 	
 	for(int i=1; i<=n; i++){
-		if(army[i]!=0&&parent[i]==i){
-			cout<<army[i]<<" ";	
+		if(army[i]!=00&&parent[i]==i){//자신이 본 노드일때만.. 
+			array[i]=army[i];	
+		}
+	}
+	
+	sort(array,array+n);
+	
+	for(int i=0; i<=n; i++){
+		if(array[i]!=0){
+			cout<<array[i]<<" ";
 		}
 	} 
 }
-
-
-
