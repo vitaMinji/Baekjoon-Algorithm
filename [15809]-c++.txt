@@ -1,0 +1,93 @@
+#include<iostream>
+#include<algorithm>
+
+using namespace std;
+
+int army[100001];
+int parent[100001]; 
+
+int getParent(int parent[], int x){
+	if(parent[x]==x) return x;
+	return parent[x]=getParent(parent,parent[x]); 
+}
+
+void together(int parent[], int p, int q){//동맹  
+	int a=getParent(parent,p);
+	int b=getParent(parent,q);
+	if(a>b){
+		parent[a]=b;
+		army[a]=army[a]+army[b];
+		army[b]=army[a];
+	}else {
+		parent[b]=a;
+		army[a]=army[a]+army[b];
+		army[b]=army[a];
+	}
+}
+
+void war(int parent[],int p, int q){//같은 동맹인가?  //시맨틱 에러  
+	int a=getParent(parent,p);
+	int b=getParent(parent,q);
+	//서로의 부모노드가 같지 않을때만  
+	if(a!=b){
+		if(army[a]>army[b]){
+			army[a]=army[a]-army[b];
+			army[b]=0;
+			parent[b]=a;
+		}else if(army[a]==army[b]){//병력이 같을때  
+			army[a]=0;
+			army[b]=0;
+			parent[a]=0;
+			parent[b]=0;
+		}else{
+			army[b]=army[b]-army[a];
+			army[a]=0;
+			parent[a]=b;
+		}
+	}
+}//같은 페어런트->값 같아야해  
+
+int main(void){
+	int n,m,o,p,q,temp;
+	cin>>n>>m;
+
+	for(int i=1; i<=n; i++){
+		parent[i]=i;
+	}
+	
+	for(int i=1; i<=n; i++){
+		cin>>temp;
+		army[i]=temp;
+	}//병력 책정  
+	
+	for(int i=0; i<m; i++){
+		cin>>o>>p>>q;
+		
+		if(o==1){
+			together(parent,p,q);
+		}else{//전쟁
+			war(parent,p,q);
+		}
+}
+	int count=0;
+	
+	sort(parent,parent+n+1);
+	for(int i=1; i<n; i++){
+		if(parent[i]!=parent[i+1]){
+			count++;
+		}
+	}//너 이상해용  
+	
+	cout<<count<<endl;
+	
+	sort(army,army+n+1);
+	
+	for(int i=1; i<=n; i++){
+		if(army[i]!=0&&parent[i]==i){
+			cout<<army[i]<<" ";	
+		}
+	} 
+}
+
+
+
