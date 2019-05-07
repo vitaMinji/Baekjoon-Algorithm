@@ -1,0 +1,20 @@
+#include<iostream>
+
+using namespace std;
+
+int tile[1001];
+
+int tiling(int num){
+	if(num==1) return 1;
+	else if(num==2) return 3;
+	else if(tile[num]!=0) return tile[num];
+	else return tile[num]=(tiling(num-1)+2*tiling(num-2))%10007;
+}
+
+
+int main(void){
+	int num;
+	cin>>num;	
+	
+	cout<<tiling(num);
+}
