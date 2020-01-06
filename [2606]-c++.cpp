@@ -6,7 +6,7 @@ int result = 0;
 
 int c[101];
 
-//2606 ¹ÙÀÌ·¯½º
+//2606 Â¹Ã™Ã€ÃŒÂ·Â¯Â½Âº
 void dfs(int start, vector<int> ve[]){
 
 	c[start] = 1;
